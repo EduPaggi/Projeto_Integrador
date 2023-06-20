@@ -19,5 +19,4 @@ module.exports = {
     // atualizar: (funcionario, id) => {
     //     return con("funcionarios").update(funcionario).where({ id: id });
     // },
-
 }
