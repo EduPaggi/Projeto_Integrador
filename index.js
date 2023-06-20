@@ -10,16 +10,11 @@ app.use(express.static("public"));
 
 app.use(routes);
 
-
-
 hbs.registerPartials(`${__dirname}/views`);
 app.set("view engine", "hbs");
 app.set("view options", {
     layout: "layouts/default",
 });
-
-
-
 
 app.listen(8080, (error) => {
     if (error) {
