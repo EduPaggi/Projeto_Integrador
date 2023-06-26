@@ -5,13 +5,8 @@ module.exports = {
     buscaTodos: (req, res) => {
         const data = usuarioRepository
             .buscaTodos()
-            .then((result) => {
-                res.send({ msg: result })
-            })
-            .catch((error) => {
-                res.status(500).send(error);
-            });
-        // res.render("usuarios", { data });
+
+        res.render("usuario", { data });
     },
     buscaPorId: (req, res) => {
         //Lembra do async await e do let data
@@ -34,9 +29,38 @@ module.exports = {
     },
     Inserir: (req, res) => {
         var usuario = req.body;
-
         console.log(usuario);
         usuarioRepository.Inserir(usuario);
-        res.send({ msg: "Usuário inserido com sucesso!", usuario });
+        // res.send({ msg: "Usuário inserido com sucesso!", usuario });
+
+        res.redirect("/usuario/buscartudo")
     },
+    validaLogin: async(req, res) => {
+        var { usuario, senha, } = req.body;
+
+        try {
+            const data = await usuarioRepository.validaLogin(usuario);
+
+            const user = data[0];
+            // const user = data.find(
+            //     (usuario) => usuario.nome === nome && usuario.senha === senha,
+            // );
+
+
+
+            if (user) {
+                if (user.senha == senha) {
+                    // res.send('Login concluído');
+                    res.redirect("/usuario/buscartudo")
+                } else {
+                    res.send('Senha inválida!');
+                }
+            } else {
+                res.render('criar_usuario', { msg: "Informações inválidas" });
+            }
+        } catch (error) {
+            console.error(error);
+            res.send('Erro ao validar o login.');
+        }
+    }
 }

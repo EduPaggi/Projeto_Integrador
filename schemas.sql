@@ -11,7 +11,6 @@ create table automovel (
 	placa VARCHAR(50) NOT NULL
 );
 
-
 create table endereco (
 	id_endereco INT PRIMARY KEY NOT NULL,
 	cep VARCHAR(50) NOT NULL,
@@ -22,6 +21,7 @@ create table endereco (
 	estado VARCHAR(50) NOT NULL,
 	complemento VARCHAR(50) NOT NULL
 );
+
 
 create table categoria_produto (
 	id_categoria INT PRIMARY KEY NOT NULL,
@@ -41,7 +41,8 @@ create table usuario (
 	nome VARCHAR(50) NOT NULL,
 	data_nsc DATE NOT NULL,
 	celular VARCHAR(50) NOT NULL,
-	email VARCHAR(50)NOT NULL
+	email VARCHAR(50) NOT NULL,
+	senha VARCHAR(50) NOT NULL
 );
 alter table usuario add constraint fk_usuario_endereco foreign key (id_endereco) references endereco (id_endereco);
 alter table usuario add constraint fk_usuario_acesso foreign key (nivel_de_acesso) references nivel_de_acesso (nivel_de_acesso);
@@ -160,27 +161,28 @@ insert into nivel_de_acesso (nivel_de_acesso, nome_nivel) values(1, 'usuario');
 insert into nivel_de_acesso (nivel_de_acesso, nome_nivel) values(2, 'entregador');
 
 
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (1, 1, 1, '+86 655 250 2411', 'Josselyn Kippen', '1969-08-31', '(934) 9643228', 'jkippen0@rambler.ru');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (2, 2, 1, '84007102217', 'Lee Meharry', '1966-10-29', '(376) 8576533', 'lmeharry1@rediff.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (3, 3, 2, '18299441617', 'Indira Nicolson', '1962-09-17', '(847) 1002856', 'inicolson2@vkontakte.ru');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (4, 4, 2, '42021498536', 'Keen Goby', '2005-06-21', '(216) 4155303', 'kgoby3@addtoany.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (5, 5, 1, '86784426669', 'Euell Depport', '1964-04-17', '(260) 2811595', 'edepport4@wordpress.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (6, 6, 1, '51649169465', 'Neale Jeynes', '1985-01-03', '(462) 6067735', 'njeynes5@dot.gov');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (7, 7, 2, '46781869402', 'Richmound Bischof', '1975-10-11', '(371) 4344690', 'rde6@sfgate.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (8, 8, 1, '67389311042', 'Natale Ruusa', '1979-10-08', '(160) 9758323', 'nruusa7@cnbc.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (9, 9, 2, '24940237170', 'Rodina Berndtssen', '1984-04-11', '(758) 2521447', 'rberndtssen8@timesonline.co.uk');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (10, 10, 2, '63888206040', 'Bobbee Marti', '1966-12-18', '(488) 8451992', 'bmarti9@admin.ch');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (11, 11, 2, '48976747588', 'Christabella Naire', '1967-08-01', '(266) 9146914', 'cnairea@chronoengine.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (12, 12, 1, '63658574751', 'Menard Hosby', '1966-09-03', '(913) 9161832', 'mhosbyb@godaddy.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (13, 13, 2, '17358398310', 'Roderic Farryan', '1974-12-26', '(324) 2585910', 'rfarryanc@typepad.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (14, 14, 1, '21162727168', 'Jenna Jedryka', '1961-11-07', '(933) 8011243', 'jjedrykad@chicagotribune.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (15, 15, 1, '25736581022', 'Martita Faint', '1992-05-01', '(709) 1181157', 'mfainte@flavors.me');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (16, 16, 2, '38091155346', 'Paddie Audenis', '1978-09-08', '(769) 6148849', 'paudenisf@unblog.fr');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (17, 17, 1, '78873021139', 'Jacintha O''Growgane', '1965-01-12', '(445) 7803326', 'jogrowganeg@paginegialle.it');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (18, 18, 2, '86079445122', 'Bonny Grishankov', '2002-05-14', '(595) 9812038', 'bgrishankovh@unesco.org');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (19, 19, 1, '41407575178', 'Jeremiah Seakings', '1997-07-26', '(991) 4096261', 'jseakingsi@ycombinator.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (20, 20, 2, '86891985119', 'Zorah Garfirth', '1991-04-05', '(574) 8729303', 'zgarfirthj@canalblog.com');
-insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email) values (21, null, 1, '86891985100', 'Eduardo Teste', '2006-04-09', '(674) 8239303', 'eduardopaggi@outlook.com');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (1, 1, 1, '+86 655 250 2411', 'Josselyn Kippen', '1969-08-31', '(934) 9643228', 'jkippen0@rambler.ru', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (2, 2, 1, '84007102217', 'Lee Meharry', '1966-10-29', '(376) 8576533', 'lmeharry1@rediff.com', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (3, 3, 2, '18299441617', 'Indira Nicolson', '1962-09-17', '(847) 1002856', 'inicolson2@vkontakte.ru', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (4, 4, 2, '42021498536', 'Keen Goby', '2005-06-21', '(216) 4155303', 'kgoby3@addtoany.com', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (5, 5, 1, '86784426669', 'Euell Depport', '1964-04-17', '(260) 2811595', 'edepport4@wordpress.com', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (6, 6, 1, '51649169465', 'Neale Jeynes', '1985-01-03', '(462) 6067735', 'njeynes5@dot.gov', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (7, 7, 2, '46781869402', 'Richmound Bischof', '1975-10-11', '(371) 4344690', 'rde6@sfgate.com', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (8, 8, 1, '67389311042', 'Natale Ruusa', '1979-10-08', '(160) 9758323', 'nruusa7@cnbc.com', '1234', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (9, 9, 2, '24940237170', 'Rodina Berndtssen', '1984-04-11', '(758) 2521447', 'rberndtssen8@timesonline.co.uk', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (10, 10, 2, '63888206040', 'Bobbee Marti', '1966-12-18', '(488) 8451992', 'bmarti9@admin.ch', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (11, 11, 2, '48976747588', 'Christabella Naire', '1967-08-01', '(266) 9146914', 'cnairea@chronoengine.com', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (12, 12, 1, '63658574751', 'Menard Hosby', '1966-09-03', '(913) 9161832', 'mhosbyb@godaddy.com', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (13, 13, 2, '17358398310', 'Roderic Farryan', '1974-12-26', '(324) 2585910', 'rfarryanc@typepad.com', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (14, 14, 1, '21162727168', 'Jenna Jedryka', '1961-11-07', '(933) 8011243', 'jjedrykad@chicagotribune.com', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (15, 15, 1, '25736581022', 'Martita Faint', '1992-05-01', '(709) 1181157', 'mfainte@flavors.me', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (16, 16, 2, '38091155346', 'Paddie Audenis', '1978-09-08', '(769) 6148849', 'paudenisf@unblog.fr', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (17, 17, 1, '78873021139', 'Jacintha O''Growgane', '1965-01-12', '(445) 7803326', 'jogrowganeg@paginegialle.it', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (18, 18, 2, '86079445122', 'Bonny Grishankov', '2002-05-14', '(595) 9812038', 'bgrishankovh@unesco.org', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (19, 19, 1, '41407575178', 'Jeremiah Seakings', '1997-07-26', '(991) 4096261', 'jseakingsi@ycombinator.com', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (20, 20, 2, '86891985119', 'Zorah Garfirth', '1991-04-05', '(574) 8729303', 'zgarfirthj@canalblog.com', '1234');
+insert into usuario (id_usuario, id_endereco, nivel_de_acesso, cpf, nome, data_nsc, celular, email, senha) values (21, null, 1, '86891985100', 'Eduardo Paggi', '2006-04-09', '(674) 8239303', 'eduardopaggi@outlook.com', '1234');
+
 
 
 insert into pagamento (id_pagamento, id_vendedor, id_comprador, produto_recebido, pagamento_concluida, codigo_rastreio) values (1, 1, 2, true, true, 1);

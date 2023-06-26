@@ -13,10 +13,13 @@ module.exports = {
     Inserir: (body) => {
         return con('usuario').insert(body).into('usuario');
     },
-    // deletar: (id) => {
-    //     return con("funcionarios").where({ id: id }).del();
-    // },
-    // atualizar: (funcionario, id) => {
-    //     return con("funcionarios").update(funcionario).where({ id: id });
-    // },
+    validaLogin: (nome) => {
+            return con.select().from("usuario").where("nome", "=", nome);
+        }
+        // deletar: (id) => {
+        //     return con("funcionarios").where({ id: id }).del();
+        // },
+        // atualizar: (funcionario, id) => {
+        //     return con("funcionarios").update(funcionario).where({ id: id });
+        // },
 }
